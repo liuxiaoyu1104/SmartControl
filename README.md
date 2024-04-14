@@ -1,16 +1,17 @@
-# ___***SmartControl: Enhancing ControlNet for Handling Rough Visual Conditions***___
+# SmartControl: Enhancing ControlNet for Handling Rough Visual Conditions
+[![arXiv](https://img.shields.io/badge/arXiv-2404.06451-b10.svg)](http://arxiv.org/abs/2404.06451.pdf)
+[![Project](https://img.shields.io/badge/Project-Website-orange)](https://smartcontrolnet.github.io/)
+
+---
 
 
-<!-- <a href='https://arxiv.org/abs/2308.06721'><img src='https://img.shields.io/badge/arXiv-2302.08453-b31b1b.svg?style=flat-square'></a>  -->
-
-<!-- --- -->
+## 1. Abstract
 
 
-<!-- ## Introduction -->
+
+![arch](assets/figs/abstract.png)
 
 For handling the disagreements between the text prompts and rough visual conditions, we propose a novel text-to-image generation method dubbed SmartControl, which is designed to align well with the text prompts while adaptively keeping useful information from the visual conditions. Specifically, we introduce a control scale predictor to identify conflict regions between the text prompt and visual condition and predict spatial adaptive scale based on the degree of conflict. The predicted control scale is employed to adaptively integrate the information from rough conditions and text prompts to achieve the flexible generation.
-
-![arch](assets/figs/method.png)
 
 ## Release
 - [2024/3/31] 🔥 We release the code and models for depth condition.
@@ -37,6 +38,8 @@ you can download our control scale predictor models from [here](https://drive.go
 
 
 - If you are interested in SmartControl, you can refer to [**smartcontrol_demo**](smartcontrol_demo.ipynb)
+
+    <!-- The result for depth conditions -->
 
 
 - For integration our SmartControl to IP-Adapter, please download the IP-Adapter models and refer to [**smartcontrol_ipadapter_demo**](smartcontrol_ipadapter_demo.ipynb)
