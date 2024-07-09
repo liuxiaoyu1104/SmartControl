@@ -1,4 +1,4 @@
-# SmartControl: Enhancing ControlNet for Handling Rough Visual Conditions
+# SmartControl: Enhancing ControlNet for Handling Rough Visual Conditions（ECCV2024）
 [![arXiv](https://img.shields.io/badge/arXiv-2404.06451-b10.svg)](http://arxiv.org/abs/2404.06451.pdf)
 [![Project](https://img.shields.io/badge/Project-Website-orange)](https://smartcontrolnet.github.io/)
 
@@ -14,6 +14,7 @@
 For handling the disagreements between the text prompts and rough visual conditions, we propose a novel text-to-image generation method dubbed SmartControl, which is designed to align well with the text prompts while adaptively keeping useful information from the visual conditions. Specifically, we introduce a control scale predictor to identify conflict regions between the text prompt and visual condition and predict spatial adaptive scale based on the degree of conflict. The predicted control scale is employed to adaptively integrate the information from rough conditions and text prompts to achieve the flexible generation.
 
 ## Release
+- [2024/7/7] 🔥 Add train datasets and code for training.
 - [2024/3/31] 🔥 We release the code and models for depth condition.
 
 
@@ -23,6 +24,20 @@ For handling the disagreements between the text prompts and rough visual conditi
 pip install -r requirements.txt
 # please install diffusers==0.25.1 to align with our forward
 ```
+
+## Unaligned Text-Condition Dataset
+
+If you want to train, you can visit [this page](https://drive.google.com/drive/folders/1DpkMZkpq512SzeFt_MzfZ7LKqXF8WZ8-?usp=drive_link) to download our dataset. Otherwise, you can directly refer to the testing section.
+
+#### Data Format
+
+The data is structured as follows:
+
+- **Image for <$\texttt{cls}_{init}$> vs. Image for <$\texttt{cls}_{alt}$>**
+- **Condition for <$\texttt{cls}_{init}$> vs. Condition for  <$\texttt{cls}_{alt}$>**
+
+#### Example
+![dataset image](assets/figs/dataset.png)
 
 ## Download Models
 
@@ -34,7 +49,7 @@ you can download our control scale predictor models from [here](https://drive.go
 
 
 
-## How to Use
+## How to Test
 
 
 - If you are interested in SmartControl, you can refer to [**smartcontrol_demo**](smartcontrol_demo.ipynb)
@@ -52,9 +67,38 @@ you can download our control scale predictor models from [here](https://drive.go
     mv IP-Adapter/models models
     ```
     
+## How to Train
 
-<!-- ## Citation
+Our training code is based on the official ControlNet code. To train on your datasets:
+
+1. Download the training datasets and place them in the `train\data` directory.
+2. Download the pre-trained models:
+   - [Stable Diffusion](https://huggingface.co/runwayml/stable-diffusion-v1-5/blob/main/v1-5-pruned.ckpt)
+   - [ControlNet](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11f1p_sd15_depth.pth)
+   
+   Place these models in the `train\models` directory.
+
+To start the training, run the following commands:
+
+```
+cd train
+python tutorial_train.py
+```
+
+
+
+
+## Acknowledgements 
+Our codes are built upon [ControlNet](https://github.com/lllyasviel/ControlNet-v1-1-nightly) and [IP-Adapter](https://github.com/tencent-ailab/IP-Adapter).
+
+
+## Citation
 If you find SmartControl useful for your research and applications, please cite using this BibTeX:
 ```bibtex
-
-``` -->
+@article{liu2024smartcontrol,
+  title={SmartControl: Enhancing ControlNet for Handling Rough Visual Conditions},
+  author={Liu, Xiaoyu and Wei, Yuxiang and Liu, Ming and Lin, Xianhui and Ren, Peiran and Xie, Xuansong and Zuo, Wangmeng},
+  journal={arXiv preprint arXiv:2404.06451},
+  year={2024}
+}
+```
