@@ -14,6 +14,7 @@
 For handling the disagreements between the text prompts and rough visual conditions, we propose a novel text-to-image generation method dubbed SmartControl, which is designed to align well with the text prompts while adaptively keeping useful information from the visual conditions. Specifically, we introduce a control scale predictor to identify conflict regions between the text prompt and visual condition and predict spatial adaptive scale based on the degree of conflict. The predicted control scale is employed to adaptively integrate the information from rough conditions and text prompts to achieve the flexible generation.
 
 ## Release
+- [2024/9/4] 🔥 Add train datasets and models for scribble, canny and seg conditions.
 - [2024/7/7] 🔥 Add train datasets and code for training.
 - [2024/3/31] 🔥 We release the code and models for depth condition.
 
@@ -27,7 +28,8 @@ pip install -r requirements.txt
 
 ## Unaligned Text-Condition Dataset
 
-If you want to train, you can visit [this page](https://drive.google.com/drive/folders/1DpkMZkpq512SzeFt_MzfZ7LKqXF8WZ8-?usp=drive_link) to download our dataset. Otherwise, you can directly refer to the testing section.
+If you want to train, you can visit [this page](https://drive.google.com/drive/folders/1DpkMZkpq512SzeFt_MzfZ7LKqXF8WZ8-?usp=drive_link) to download our dataset for depth condition. Otherwise, you can directly refer to the testing section.
+We also provide the datasets for other conditions in [here](https://pan.baidu.com/s/1Hd69Kpi_K_dbn3vZpSYnjA?pwd=vnn3). 
 
 #### Data Format
 
@@ -41,7 +43,7 @@ The data is structured as follows:
 
 ## Download Models
 
-you can download our control scale predictor models from [here](https://drive.google.com/file/d/1iu7eE-XtxFkIupvJyesQnustuujXAW61/view?usp=drive_link). To run the demo, you should also download the following models:
+you can download our control scale predictor models from [depth condition](https://drive.google.com/file/d/1iu7eE-XtxFkIupvJyesQnustuujXAW61/view?usp=drive_link) and [other conditions]( https://pan.baidu.com/s/1JvIn_IzfASiBUpzRi4s5oQ?pwd=2fe8). To run the demo, you should also download the following models:
 - [stabilityai/sd-vae-ft-mse](https://huggingface.co/stabilityai/sd-vae-ft-mse)
 - [SG161222/Realistic_Vision_V5.1_noVAE](https://huggingface.co/SG161222/Realistic_Vision_V5.1_noVAE)
 - [ControlNet models](https://huggingface.co/lllyasviel)
